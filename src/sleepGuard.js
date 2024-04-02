@@ -121,19 +121,3 @@ export default function sleepGuard({
 
   return { start, stop };
 }
-
-// Example usage:
-const pinger = sleepGuard({
-  url: "https://google.com",
-  intervalMinutes: 0.5,
-  sleepStart: "8:34:00:000",
-  sleepEnd: "9:53:00",
-  timeZone: "America/New_York",
-});
-
-pinger.start();
-
-// Stop the pinging process after 3 minutes
-setTimeout(() => {
-  pinger.stop();
-}, 1 * 60 * 1000); // 3 minutes in milliseconds
