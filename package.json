@@ -13,7 +13,15 @@
   },
   "keywords": [
     "server-awake",
-    "uptime"
+    "render-prevent-sleep",
+    "free-dyno-awake",
+    "heroku-sleep-guard",
+    "node-uptime",
+    "nodejs-keep-alive",
+    "timezone-time-utility",
+    "interval-ping",
+    "server-inactivity",
+    "Don't-idle"
   ],
   "author": "ifeanyi ugwu",
   "license": "MIT",
