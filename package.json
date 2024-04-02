@@ -1,0 +1,23 @@
+{
+  "name": "oge",
+  "version": "0.0.0",
+  "description": "OGE is a utility package designed to prevent a servers, especially free instances on hosting platforms like render.com, from going dormant due to inactivity. It offers configurable sleep windows, time zones, and additional utilities for building custom functionalities.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ifeanyi-ugwu/oge.git"
+  },
+  "keywords": [
+    "server-awake",
+    "uptime"
+  ],
+  "author": "ifeanyi ugwu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ifeanyi-ugwu/oge/issues"
+  },
+  "homepage": "https://github.com/ifeanyi-ugwu/oge#readme"
+}
