@@ -6,7 +6,10 @@
  * @param {Date} interval.end - The end time of the interval.
  * @returns {boolean} - Returns true if the time TO check is within the interval, otherwise false.
  */
-export default function isTimeWithinInterval(timeToCheck, { start, end }) {
+export default function isTimeWithinInterval(
+  timeToCheck: Date,
+  { start, end }: { start: Date; end: Date }
+): boolean {
   try {
     // If the sleep end time is earlier than the start time, it's on the next day
     if (end < start) {
@@ -16,6 +19,7 @@ export default function isTimeWithinInterval(timeToCheck, { start, end }) {
     // Check if the time to check is within the interval
     return timeToCheck >= start && timeToCheck < end;
   } catch (error) {
-    console.error(error.message);
+    console.error((error as Error).message);
+    return false;
   }
 }

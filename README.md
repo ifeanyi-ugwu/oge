@@ -1,6 +1,6 @@
 # OGE
 
-OGE is a utility package designed to prevent a servers, especially free instances on hosting platforms like render.com, from going dormant due to inactivity. It offers configurable sleep windows, time zones, and additional utilities for building custom functionalities.
+OGE is a utility package designed to prevent servers, especially free instances on hosting platforms like render.com, from going dormant due to inactivity. It offers configurable sleep windows, time zones, and additional utilities for building custom functionalities.
 
 [![npm version](https://badge.fury.io/js/oge.svg)](https://badge.fury.io/js/oge)
 

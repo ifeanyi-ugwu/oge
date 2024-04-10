@@ -4,9 +4,12 @@ import getUTCOffset from "./getUTCOffset.js";
  * Parses a time string to a UTC date object.
  * @param {string} timeString - The time string to parse (in format "HH:MM").
  * @param {string} timeZone - The standard time zone (e.g., "America/New_York").
- * @returns {Date} - Returns a Date object representing the parsed time in UTC.
+ * @returns {Date | undefined} - Returns a Date object representing the parsed time in UTC, or undefined if an error occurs.
  */
-export default function parseTimeStringToUTCDate(timeString, timeZone) {
+export default function parseTimeStringToUTCDate(
+  timeString: string,
+  timeZone: string
+): Date | undefined {
   try {
     const [hours = 0, minutes = 0, seconds = 0, milliseconds = 0] = timeString
       .split(":")
@@ -26,27 +29,27 @@ export default function parseTimeStringToUTCDate(timeString, timeZone) {
       )
     );
 
-    // Get the offset for the timezone
     const offset = getUTCOffset(timeZone);
 
-    // Calculate the offset in milliseconds
-    const [offsetHours, offsetMinutes] = offset.split(":").map(Number);
-    const offsetMilliseconds =
-      (offsetHours * 60 + offsetMinutes) *
-      60 *
-      1000 *
-      (offset.startsWith("-") ? -1 : 1);
+    if (offset != undefined) {
+      // Calculate the offset in milliseconds
+      const [offsetHours, offsetMinutes] = offset.split(":").map(Number);
+      const offsetMilliseconds =
+        (offsetHours * 60 + offsetMinutes) *
+        60 *
+        1000 *
+        (offset.startsWith("-") ? -1 : 1);
 
-    // Create a new date object adjusted for the timezone offset
-    const dateInTimeZone = new Date(date.getTime() + offsetMilliseconds);
-    // console.log(dateInTimeZone);
-    return dateInTimeZone;
+      const dateInTimeZone = new Date(date.getTime() + offsetMilliseconds);
+
+      return dateInTimeZone;
+    }
   } catch (error) {
-    console.error(error.message);
+    console.error((error as Error).message);
   }
 }
 
-function parseTimeStringToUTCDatei(timeString, timeZone) {
+/*function parseTimeStringToUTCDate(timeString, timeZone) {
   try {
     const [hours = 0, minutes = 0, seconds = 0, milliseconds = 0] = timeString
       .split(":")
@@ -58,4 +61,4 @@ function parseTimeStringToUTCDatei(timeString, timeZone) {
   } catch (error) {
     console.error(error.message);
   }
-}
+}*/

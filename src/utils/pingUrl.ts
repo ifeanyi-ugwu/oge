@@ -2,9 +2,9 @@
  * Pings a url by sending a fetch request
  * @param {string} url - The url to send the ping request (e.g., "https://google.com").
  */
-export default async function pingUrl(url) {
+export default async function pingUrl(url: URL) {
   try {
-    const response = await fetch(url, { timeout: 5000 }); // 5 seconds
+    const response = await fetch(url);
 
     if (response.ok) {
       console.log(
@@ -17,6 +17,6 @@ export default async function pingUrl(url) {
       console.error(response);
     }
   } catch (error) {
-    console.error(`Error fetching ${url}: ${error.message}`);
+    console.error(`Error fetching ${url}: ${(error as Error).message}`);
   }
 }

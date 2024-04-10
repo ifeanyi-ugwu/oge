@@ -1,11 +1,13 @@
 {
   "name": "oge",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "OGE is a utility package designed to prevent a servers, especially free instances on hosting platforms like render.com, from going dormant due to inactivity. It offers configurable sleep windows, time zones, and additional utilities for building custom functionalities.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -28,5 +30,8 @@
   "bugs": {
     "url": "https://github.com/ifeanyi-ugwu/oge/issues"
   },
-  "homepage": "https://github.com/ifeanyi-ugwu/oge#readme"
+  "homepage": "https://github.com/ifeanyi-ugwu/oge#readme",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
 }

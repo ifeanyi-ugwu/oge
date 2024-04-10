@@ -22,14 +22,20 @@ export default function sleepGuard({
   sleepStart,
   sleepEnd,
   timeZone = "UTC",
-}) {
-  let intervalId;
-  let sleepTimeoutId;
+}: {
+  url: URL;
+  intervalMinutes?: number;
+  sleepStart?: string;
+  sleepEnd?: string;
+  timeZone?: string;
+}): object {
+  let intervalId: number | undefined;
+  let sleepTimeoutId: number | undefined;
 
-  let sleepStartTimeUTC,
-    sleepEndTimeUTC,
-    sleepStartTimeString,
-    sleepEndTimeString;
+  let sleepStartTimeUTC: Date | undefined,
+    sleepEndTimeUTC: Date | undefined,
+    sleepStartTimeString: string | undefined,
+    sleepEndTimeString: string | undefined;
 
   /**
    * Stops the pinging process.
@@ -61,6 +67,7 @@ export default function sleepGuard({
     if (
       sleepStartTimeUTC &&
       sleepEndTimeUTC &&
+      currentTimeUTC &&
       isTimeWithinInterval(currentTimeUTC, {
         start: sleepStartTimeUTC,
         end: sleepEndTimeUTC,
@@ -98,12 +105,12 @@ export default function sleepGuard({
     sleepStartTimeUTC = parseTimeStringToUTCDate(sleepStart, timeZone);
     sleepEndTimeUTC = parseTimeStringToUTCDate(sleepEnd, timeZone);
 
-    sleepStartTimeString = sleepStartTimeUTC.toLocaleTimeString("en-US", {
+    sleepStartTimeString = sleepStartTimeUTC?.toLocaleTimeString("en-US", {
       timeZone,
       hour12: false,
     });
 
-    sleepEndTimeString = sleepEndTimeUTC.toLocaleTimeString("en-US", {
+    sleepEndTimeString = sleepEndTimeUTC?.toLocaleTimeString("en-US", {
       timeZone,
       hour12: false,
     });
