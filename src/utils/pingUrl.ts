@@ -12,9 +12,8 @@ export default async function pingUrl(url: URL) {
       );
     } else {
       console.log(
-        `Status: ${response.status} | Fetching ${url}. Server returned an error.`
+        `Status: ${response.status} | Fetching ${url}. Server returned an error: ${response.statusText}`
       );
-      console.error(response);
     }
   } catch (error) {
     console.error(`Error fetching ${url}: ${(error as Error).message}`);
