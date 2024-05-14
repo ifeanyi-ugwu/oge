@@ -32,10 +32,7 @@ export default function sleepGuard({
   let intervalId: number | undefined;
   let sleepTimeoutId: number | undefined;
 
-  let sleepStartTimeUTC: Date | undefined,
-    sleepEndTimeUTC: Date | undefined,
-    sleepStartTimeString: string | undefined,
-    sleepEndTimeString: string | undefined;
+  let sleepStartTimeUTC: Date | undefined, sleepEndTimeUTC: Date | undefined;
 
   /**
    * Stops the pinging process.
@@ -75,7 +72,7 @@ export default function sleepGuard({
     ) {
       console.log(`\n--- Sleep Mode Activated ---`);
       console.log(`Current Time: ${currentTimeString} (${timeZone} time)`);
-      console.log(`Resuming at: ${sleepEndTimeString} (${timeZone} time)`);
+      console.log(`Resuming at: ${sleepEnd} (${timeZone} time)`);
       console.log(`-------------------------------\n`);
 
       stop();
@@ -104,25 +101,13 @@ export default function sleepGuard({
   if (sleepStart && sleepEnd && timeZone) {
     sleepStartTimeUTC = parseTimeStringToUTCDate(sleepStart, timeZone);
     sleepEndTimeUTC = parseTimeStringToUTCDate(sleepEnd, timeZone);
-
-    sleepStartTimeString = sleepStartTimeUTC?.toLocaleTimeString("en-US", {
-      timeZone,
-      hour12: false,
-    });
-
-    sleepEndTimeString = sleepEndTimeUTC?.toLocaleTimeString("en-US", {
-      timeZone,
-      hour12: false,
-    });
   }
 
   console.log(`\n--- Pinger Configuration ---`);
   console.log(`URL: ${url}`);
   console.log(`Ping Interval: ${intervalMinutes} minute(s)`);
   if (sleepStart && sleepEnd && timeZone) {
-    console.log(
-      `Sleep Window: ${sleepStartTimeString} - ${sleepEndTimeString} (${timeZone} time)`
-    );
+    console.log(`Sleep Window: ${sleepStart} - ${sleepEnd} (${timeZone} time)`);
   }
   console.log(`-------------------------------\n`);
 
