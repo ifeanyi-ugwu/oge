@@ -4,6 +4,13 @@ import {
   pingUrl,
 } from "./utils/index.js";
 
+interface Pinger {
+  //The function to start the pinging process.
+  start: () => void;
+  //The function to stop the pinging process.
+  stop: () => void;
+}
+
 /**
  * Configures and starts the pinging process for the specified URL.
  * @param {Object} config - Configuration object.
@@ -28,9 +35,9 @@ export default function sleepGuard({
   sleepStart?: string;
   sleepEnd?: string;
   timeZone?: string;
-}): object {
-  let intervalId: number | undefined;
-  let sleepTimeoutId: number | undefined;
+}): Pinger {
+  let intervalId: NodeJS.Timeout | undefined;
+  let sleepTimeoutId: NodeJS.Timeout | undefined;
 
   let sleepStartTimeUTC: Date | undefined, sleepEndTimeUTC: Date | undefined;
 

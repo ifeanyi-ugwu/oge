@@ -6,5 +6,5 @@
 /types
 
 # misc
-.npmignore
+.DS_Store
 *.tgz

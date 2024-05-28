@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/ifeanyi-ugwu/oge#readme",
   "devDependencies": {
+    "@types/node": "^20.12.12",
     "typescript": "^5.4.5"
   }
 }
