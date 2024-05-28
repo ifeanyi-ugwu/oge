@@ -33,7 +33,7 @@ import { sleepGuard } from "oge";
 Prevents server dormancy by pinging a specified URL at regular intervals.
 
 ```javascript
-sleepGuard(config: {url: string, intervalMinutes?: number = 14, sleepStart?: string, sleepEnd?: string, timeZone?: string = 'UTC'}): { start: () => void, stop: () => void };
+sleepGuard(config: {url: URL, intervalMinutes?: number = 14, sleepStart?: string, sleepEnd?: string, timeZone?: string = 'UTC'}): { start: () => void, stop: () => void };
 ```
 
 - `config.url`: The URL to ping. This is public the url of your server instance.
@@ -48,7 +48,7 @@ Free hosting providers often limit your server uptime. With `sleepStart` and `sl
 
 ```javascript
 const pinger = sleepGuard({
-  url: "https://example.com",
+  url: new URL("https://example.com"),
   intervalMinutes: 10,
   sleepStart: "22:00",
   sleepEnd: "06:00",

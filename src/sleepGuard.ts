@@ -14,7 +14,7 @@ interface Pinger {
 /**
  * Configures and starts the pinging process for the specified URL.
  * @param {Object} config - Configuration object.
- * @param {string} config.url - The URL to ping.
+ * @param {URL} config.url - The URL to ping.
  * @param {number} [config.intervalMinutes=14] - The interval between pings (in minutes).
  * @param {string} [config.sleepStart] - The start time (based on the specified time zone OR UTC by default) of the sleep window in 24-hour format 'HH:MM:SS:MS' (e.g., "22:00:00:00").
  * @param {string} [config.sleepEnd] - The end time (based on the specified time zone OR UTC by default) of the sleep window in 24-hour format 'HH:MM:SS:MS' (e.g., "06:00:00:00").
