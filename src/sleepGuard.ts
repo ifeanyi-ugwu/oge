@@ -30,7 +30,7 @@ export default function sleepGuard({
   sleepEnd,
   timeZone = "UTC",
 }: {
-  url: URL;
+  url: URL | string;
   intervalMinutes?: number;
   sleepStart?: string;
   sleepEnd?: string;

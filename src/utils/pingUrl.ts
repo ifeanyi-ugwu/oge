@@ -2,7 +2,7 @@
  * Pings a url by sending a fetch request
  * @param {string} url - The url to send the ping request (e.g., "https://google.com").
  */
-export default async function pingUrl(url: URL) {
+export default async function pingUrl(url: URL | string) {
   try {
     const response = await fetch(url);
 
